@@ -31,7 +31,7 @@ jobs:
       - run: npm run test
 
   deploy:
-    needs: build
+    needs: test
     permissions:
       contents: write
       pages: write
@@ -61,7 +61,7 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          patth: './out'
+          path: './out'
       - name: deploy
         id: deployment
         uses: actions/deploy-pages@v4
